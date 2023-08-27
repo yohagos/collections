@@ -19,13 +19,20 @@ public class Main {
         //System.out.println(products);
 
         Iterator<Product> it = products.iterator();
-        while (it.hasNext()) {
-            if (it.next().weight() > 20)
-                it.remove();
-        }
+       // while (it.hasNext()) {
+            //if (it.next().weight() > 20)
+                //it.remove();
+        //}
         System.out.println(products.size());
         System.out.println(products.isEmpty());
         System.out.println(products.contains(door));
+
+        var toRemove = new ArrayList<Product>();
+        toRemove.add(door);
+        toRemove.add(floorPanel);
+
+        products.removeAll(toRemove);
+        System.out.println(products.size());
     }
 
 }
