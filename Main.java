@@ -14,25 +14,7 @@ public class Main {
         products.add(floorPanel);
         products.add(window);
 
-        //System.out.println(products);
-        //products.removeIf(product -> product.weight() > 20);
-        //System.out.println(products);
 
-        Iterator<Product> it = products.iterator();
-       // while (it.hasNext()) {
-            //if (it.next().weight() > 20)
-                //it.remove();
-        //}
-        System.out.println(products.size());
-        System.out.println(products.isEmpty());
-        System.out.println(products.contains(door));
-
-        var toRemove = new ArrayList<Product>();
-        toRemove.add(door);
-        toRemove.add(floorPanel);
-
-        products.removeAll(toRemove);
-        System.out.println(products.size());
     }
 
 }
