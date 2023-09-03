@@ -1,13 +1,16 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class Shipment implements Iterable<Product>{
+public class Shipment implements Iterable<Product>{
     private static final int MISSING_PRODUCT = -1;
 
     private static final int LIGHT_VAN_MAX_WEIGHT = 20;
 
+    public Shipment() {
 
+    }
     private final List<Product> products = new ArrayList<>();
     private List<Product> lightVanProducts;
     private List<Product> heavyVanProducts;
@@ -39,8 +42,8 @@ public abstract class Shipment implements Iterable<Product>{
         int splitPoint = findSplitPoint();
 
         // create two subviews of the list
-        lightVanProducts = products.subList(0, splitPoint);
-        heavyVanProducts = products.subList(splitPoint, products.size());
+        lightVanProducts = Collections.unmodifiableList(products.subList(0, splitPoint));
+        heavyVanProducts = Collections.unmodifiableList(products.subList(splitPoint, products.size()));
     }
 
     private int findSplitPoint() {
